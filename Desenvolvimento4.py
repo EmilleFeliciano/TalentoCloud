@@ -22,8 +22,8 @@ def calculadora():
             break
         elif escolha in ["1", "2", "3", "4"]:
             try:
-                num1 = float(input("Digite o primeiro valor: "))
-                num2 = float(input("Digite o segundo valor: "))
+                num1 = int(input("Digite o primeiro valor: "))
+                num2 = int(input("Digite o segundo valor: "))
             except ValueError:
                 print("Por favor, insira valores numéricos válidos.")
                 continue
