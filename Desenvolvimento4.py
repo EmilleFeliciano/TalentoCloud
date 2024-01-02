@@ -6,22 +6,45 @@
 #4. Divisão
 #Caso seja inserido um número de operação que não exista, o resultado deverá ser 0.
 
-def calculadora (numero1, numero2, operacao):
+def calculadora():
+    while True:
+        print("Escolha uma operacao:")
+        print("1: Soma")
+        print("2: Subtracao")
+        print("3: Multiplicacao")
+        print("4: Divisao")
+        print("0: Sair")
 
-    if(operacao == 1):
-        return numero1 + numero2
-    
-    elif(operacao == 2):
-        return numero1 - numero2
-    
-    elif (operacao == 3):
-        return numero1 * numero2
-    
-    elif (operacao == 4):
-        return numero1 / numero2
-    
-    else:
-        return 0
-    
-resultado = calculadora (2, 3 ,1)
-print(resultado)
+        escolha = input("Digite um numero: ")
+
+        if escolha == "0":
+            print("Fechando calculadora.")
+            break
+        elif escolha in ["1", "2", "3", "4"]:
+            try:
+                num1 = float(input("Digite o primeiro valor: "))
+                num2 = float(input("Digite o segundo valor: "))
+            except ValueError:
+                print("Por favor, insira valores numéricos válidos.")
+                continue
+
+            if escolha == "1":
+                resultado = num1 + num2
+                print(f"Resultado: {resultado}")
+            elif escolha == "2":
+                resultado = num1 - num2
+                print(f"Resultado: {resultado}")
+            elif escolha == "3":
+                resultado = num1 * num2
+                print(f"Resultado: {resultado}")
+            elif escolha == "4":
+                if num2 != 0:
+                    resultado = num1 / num2
+                    print(f"Resultado: {resultado}")
+                else:
+                    print("Não é possível dividir por zero.")
+        else:
+            print("Essa opção não existe. Tente novamente.")
+
+if __name__ == "__main__":
+    calculadora()
